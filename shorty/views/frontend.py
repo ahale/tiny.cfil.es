@@ -17,7 +17,7 @@ class IndexView(MethodView):
         myurl = request.args.get('url')
         if myurl:
             if not (myurl.startswith('http://') or myurl.startswith('https://')):
-                myurl = 'http://', myurl
+                myurl = u'http://%s' % myurl
             short_code = shorten_url(myurl, '')
             short_url = '%s/%s%s' % (current_app.config['BASE_URL'], current_app.config['PREFIX'], short_code)
             return render_template(self.template,
