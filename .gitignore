@@ -1,0 +1,8 @@
+*.db
+*.pyc
+*.pyo
+*~
+*.orig
+*.sqlite
+shorty/local_settings.py
+tiny.cfil.es.conf
