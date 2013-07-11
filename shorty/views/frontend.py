@@ -13,16 +13,19 @@ class IndexView(MethodView):
     template = 'index.html'
 
     def get(self):
-	form = URLForm()
-	if request.args.get('url'):
-		short_code = shorten_url(request.args.get('url'), '')
-		short_url = '%s/%s%s' % (current_app.config['BASE_URL'], current_app.config['PREFIX'], short_code)
-		return render_template(self.template,
-				       form=form,
-				       short_url=short_url)
-	else:
-		return render_template(self.template,
-				       form=form)
+        form = URLForm()
+        myurl = request.args.get('url')
+        if myurl:
+            if not (myurl.startswith('http://') or myurl.startswith('https://')):
+                myurl = 'http://', myurl
+            short_code = shorten_url(myurl, '')
+            short_url = '%s/%s%s' % (current_app.config['BASE_URL'], current_app.config['PREFIX'], short_code)
+            return render_template(self.template,
+                           form=form,
+                           short_url=short_url)
+        else:
+            return render_template(self.template,
+                           form=form)
 
     def post(self):
         form = URLForm()
