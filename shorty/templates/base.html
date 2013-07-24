@@ -5,6 +5,13 @@
     <title>{% block title %}Cloud Files URL Shortener{% endblock %}</title>
     <!-- JavaScript -->
     <script type="text/javascript" src="{{ JS }}/shorty.js"></script>
+    <script type="text/javascript" src="{{ JS }}/ZeroClipboard.min.js"></script>
+    <script type="text/javascript" src="{{ JS }}/jquery.js"></script>
+    <script language="JavaScript">
+    $(document).ready(function() {
+        var clip = new ZeroClipboard($("#clip_button"), { moviePath: "/static/js/ZeroClipboard.swf"});
+    });
+    </script>
     <!-- END JavaScript -->
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{ CSS }}/bootstrap.min.css" />

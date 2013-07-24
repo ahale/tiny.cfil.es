@@ -20,7 +20,8 @@
 <div class="row">
     <div class="span14">
     {% if short_url %}
-        <h1><a href="{{ short_url }}" class="shorturl">{{ short_url }}</a></h1>
+        <h1 id="short_url"><a href="{{ short_url }}" class="shorturl">{{ short_url }}</a></h1>
+        <button id="clip_button" class="btn primary" title="Copy to Clipboard" data-clipboard-target="short_url">Copy</button>
     {% endif %}
     </div>
 </div>
